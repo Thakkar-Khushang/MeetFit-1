@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { deviceSize } from "../responsive";
 import { useMediaQuery } from "react-responsive";
 
+
 const NavbarContainer = styled.div`
   width: 100%;
   height: 80px;
@@ -54,15 +55,15 @@ export function Navbar(props) {
     <NavbarContainer useTransparent={useTransparent} fixed="top">
       <BrandLogo />
       <AccessibilityContainer>
-      <Link to="/customer/access/signup">
-          <Button size={18}>Home</Button>
+      <Link to="/profile">
+          <Button size={18}>Profiles</Button>
         </Link>
         <Marginer direction="horizontal" margin={8} />
         <Link to="/customer/access/signup">
           <Button size={18}>About Us</Button>
         </Link>
         <Marginer direction="horizontal" margin={8} />
-        <Link to="src/components/Cards/src/App.js">
+        <Link to="/list">
           <Button size={18}>Contact</Button>
         </Link>
         <Marginer direction="horizontal" margin={8} />

@@ -8,7 +8,7 @@ import { Button } from "../button";
 import { deviceSize } from "../responsive";
 import { useMediaQuery } from "react-responsive";
 import BootstrapCarousel from './BootstrapCarousel';
-
+import {Team} from "../../components/Team";
 const SpecialistAdContainer = styled.div`
   width: 100%;
   height: 500px;
@@ -32,9 +32,9 @@ const ContentContainer = styled.div`
 const SloganContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
-  margin-right: 5em;
+  // margin-right: 5em;
 
   @media screen and (max-width: ${deviceSize.mobile}px) {
     align-items: center;
@@ -43,14 +43,17 @@ const SloganContainer = styled.div`
 `;
 
 const Slogan = styled.h2`
-  margin: 0;
+  margin: 10px;
+  // margin-left: 100px;
   font-size: 24px;
   color: #fff;
+  align-items: center;
   font-weight: 700;
   line-height: 1.3;
   text-align: center;
 
   @media screen and (max-width: ${deviceSize.mobile}px) {
+    align="center";
     font-size: 20px;
   }
 `;
@@ -71,11 +74,13 @@ export function SpecialistAd(props) {
           <SloganContainer>
             <div align="center">
             <Slogan>About Us</Slogan>
-            <p>MeetFit is a web app designed especially for women who want to get fit.<br /> Through the web-app they can explore various fitness activities in their locality. <br />Not only does this provide them with an opportunity to connect with other women having the same fitness interest but also form pairs or groups to participate in with them.</p>
-            </div>
+            <div align="center">MeetFit is a web app designed especially for women who want to get fit.<br /> Through the web-app they can explore various fitness activities in their locality. <br />Not only does this provide them with an opportunity to connect with other women having the same fitness interest but also form pairs or groups to participate in with them.
+            </div></div>
+            <Slogan> Team TASK </Slogan>
           </SloganContainer>
           <Marginer direction="vertical" margin="0.8em" />
-          <div margin="40%"><BootstrapCarousel></BootstrapCarousel></div>
+          <Team />
+          {/* <div margin="40%"><BootstrapCarousel></BootstrapCarousel></div> */}
         </SloganContainer>
       </ContentContainer>
     </SpecialistAdContainer>

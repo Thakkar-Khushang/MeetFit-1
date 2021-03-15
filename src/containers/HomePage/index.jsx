@@ -13,6 +13,7 @@ import { Services } from "./services";
 // import { App } from "../../components/Cards/src/App";
 import { TopSection } from "./topSection";
 
+
 const ContentContainer = styled.div`
   width: 100%;
   max-width: ${deviceSize.laptop}px;
@@ -33,13 +34,13 @@ export function HomePage(props) {
         <Navbar useTransparent />
       </TopSection>
       <InnerPageContainer>
-        <Marginer direction="vertical" margin="2em" />
+        {/* <Marginer direction="vertical" margin="2em" /> */}
         <ContentContainer>
-          <Services />
+          {/* <Services /> */}
           {/* <App /> */}
         </ContentContainer>
-        <Marginer direction="vertical" margin="5em" />
         <SpecialistAd />
+
         <Marginer direction="vertical" margin="5em" />
       </InnerPageContainer>
       <Footer />
