@@ -16,41 +16,26 @@ export function SignupForm(props) {
 
   return (
     <BoxContainer>
-      <FormContainer>
-        <Input placeholder="Full Name" />
-        <Input placeholder="Email" />
-        <Input type="password" placeholder="Password" />
-        <Input type="password" placeholder="Confirm Password" />
-        <label for="cars"></label>
-        <Select native defaultValue='none'>
+      <FormContainer action="http://localhost:8080/api/user" method="post">
+        <Input type="text" name="name" id="name" placeholder="Full Name" />
+        <Input type="text" name="email" id="email" placeholder="Email" />
+        <Input type="text" name="city" id="city" placeholder="City" />
+        <Input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" />
+        <Input name="password" id="password" type="password" placeholder="Password" />
+        <Input name="confPassword" id="confPassword" type="password" placeholder="Confirm Password" />
+        <Select name="activity" id="activity" native defaultValue='none'>
           <option value="none" disabled>Activites</option>
-          <option value="0">Trek</option>
-          <option value="1">Circuit Training</option>
-          <option value="2">Meditation</option>
-          <option value="3">Cardio</option>
-          <option value="4">Walk</option>
-          <option value="5">Yoga</option>
-          <option value="6">Swimming</option>
-          <option value="7">Activities</option>
+          <option value="Trek">Trek</option>
+          <option value="Circuit Training">Circuit Training</option>
+          <option value="Meditation">Meditation</option>
+          <option value="Cardio">Cardio</option>
+          <option value="Walk">Walk</option>
+          <option value="Yoga">Yoga</option>
+          <option value="Swimming">Swimming</option>
         </Select>
-        <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-                </a>
-                </div>
+        <Marginer direction="vertical" margin="1em" />
+          <SubmitButton type="submit">Signup</SubmitButton>
       </FormContainer>
-      <Marginer direction="vertical" margin="1em" />
-      <SubmitButton>Signup</SubmitButton>
       <Marginer direction="vertical" margin={5} />
       <MutedLink href="#">
         Already have an account?

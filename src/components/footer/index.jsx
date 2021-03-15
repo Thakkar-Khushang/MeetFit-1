@@ -119,23 +119,28 @@ export function Footer(props) {
     <FooterContainer>
       <TopContainer>
         <ContentContainer>
-          <Title>Categories</Title>
-          <FLink>Car Repair</FLink>
-          <FLink>Carpentry</FLink>
-          <FLink>Landscaping</FLink>
-          <FLink>Cleaning</FLink>
-          <FLink>Home Improvement</FLink>
-          <FLink>Demolition</FLink>
-          <FLink>Management</FLink>
-          <FLink>Others</FLink>
+        <Title>Tirth Patel</Title>
+          <FLink href="https://github.com/Tirth22">GitHub</FLink>
+          <FLink href="https://www.linkedin.com/in/tirth-patel-3b0669204/">LinkedIn</FLink>
         </ContentContainer>
         <ContentContainer>
-          <Title>Access</Title>
-          <FLink>Login</FLink>
-          <FLink>Join Us</FLink>
-          <FLink>Login as Specialist</FLink>
-          <FLink>Become a Specialist</FLink>
+          <Title>Akriti Dalal</Title>
+          <FLink href="https://github.com/Aks2002">GitHub</FLink>
+          <FLink href="https://www.linkedin.com/in/akriti-dalal-026a49205/">LinkedIn</FLink>          
         </ContentContainer>
+        
+        <ContentContainer>
+          <Title>Sachi Kaushik</Title>
+          <FLink href="https://github.com/sachi-20">GitHub</FLink>
+          <FLink href="https://www.linkedin.com/in/sachi-kaushik-199216205/">LinkedIn</FLink>          
+        </ContentContainer>
+
+        <ContentContainer>
+          <Title>Khushang Thakkar</Title>
+          <FLink href="https://github.com/Thakkar-Khushang">GitHub</FLink>
+          <FLink href="https://www.linkedin.com/in/khushang-thakkar-581794205/">LinkedIn</FLink>          
+        </ContentContainer>
+        
       </TopContainer>
       <BottomContainer>
         <LeftBottomContainer>

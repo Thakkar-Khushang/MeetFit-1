@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -17,51 +18,42 @@ const useStyles = makeStyles({
   }
 });
 
-export default function MediaCard() {
+export default function MediaCard(props) {
   const classes = useStyles();
-
+  const {dataset} = props;
   return (
-    
-    <>
-    <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="images/pool.jpg"
-          title="Community Pool Centre"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Ray Center
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <p>Swimming</p>
-            <p>Timings: 10am - 5pm</p>
-            Contact : +91 9888754210
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          <a href="http://www.raycenter.in/index.html">
-            Learn More
-          </a>
-        </Button>
-      </CardActions>
-    </Card>
-    
-
-
-
-    
-    </>
-
-
-
-
-   
-
-
-
-  );
+    dataset.map((data,index) => {
+      return(
+            <Grid item xs={12} sm={6} md={4}>
+              <Card className={classes.root}>
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.media}
+                    image={data.img_url}
+                    title={data.title}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {data.name}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      <p>{data.activity}</p>
+                      <p>Timings: {data.timing}</p>
+                      Contact : {data.phoneNumber}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button size="small" color="primary">
+                    <a href={data.web_url}>
+                      Learn More
+                    </a>
+                  </Button>
+                </CardActions>
+              </Card>
+              </Grid>
+      )
+    }
+    )
+  )
 }
