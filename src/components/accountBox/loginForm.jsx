@@ -15,7 +15,7 @@ export function LoginForm(props) {
 
   return (
     <BoxContainer>
-      <FormContainer action="http://localhost:8080/api/verify" method="post">
+      <FormContainer action="https://whatevermeetfit.azurewebsites.net/api/verify" method="post">
         <Input type="text" name="email" placeholder="Email" />
         <Input type="password" name="password" placeholder="Password" />
         <MutedLink href="#">Forgot Password?</MutedLink>
