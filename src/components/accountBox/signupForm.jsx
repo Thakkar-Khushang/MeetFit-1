@@ -16,7 +16,7 @@ export function SignupForm(props) {
 
   return (
     <BoxContainer>
-      <FormContainer action="http://localhost:8080/api/user" method="post">
+      <FormContainer action="https://whatevermeetfit.azurewebsites.net/api/user" method="post">
         <Input type="text" name="name" id="name" placeholder="Full Name" />
         <Input type="text" name="email" id="email" placeholder="Email" />
         <Input type="text" name="city" id="city" placeholder="City" />
