@@ -26,8 +26,8 @@ function App(){
   const [loading, setLoading] = useState(true);
 
 
-  const url1 = 'http://localhost:8080/api/centers';
-  const url2 = 'http://localhost:8080/api/users'
+  const url1 = 'https://whatevermeetfit.azurewebsites.net/api/centers';
+  const url2 = 'https://whatevermeetfit.azurewebsites.net/api/users'
 
   useEffect (() => {
     
