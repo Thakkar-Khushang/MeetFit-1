@@ -5,6 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -23,25 +24,31 @@ const useStyles = makeStyles({
   }
 });
 
-export default function OutlinedCard() {
+export default function OutlinedCard(props) {
   const classes = useStyles();
+  const {dataset} = props;
 
   return (
+    dataset.map((data,index) => {
+      return(
+    <Grid item xs={12} sm={6} md={4}>
     <Cardwone className={classes.root} variant="outlined">
       <CardContent>
         <Typography variant="h5" component="h2">
-          Aaisha Kapoor
+          {data.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Jayanagar
+        {data.city}
         </Typography>
         <Typography variant="body2" component="p">
-          Zumba
+          {data.activity}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Message</Button>
+        <Button size="small">Learn More</Button>
       </CardActions>
     </Cardwone>
-  );
+    </Grid>
+  )
 }
+    ))}

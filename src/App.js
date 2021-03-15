@@ -2,23 +2,13 @@ import "./App.css";
 import { HomePage } from "./containers/HomePage/";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { CustomerAccessPage } from "./containers/customerAccessPage";
-import React from "react";
+import React,  { useEffect, useState } from "react";
+import axios from 'axios' ;
 import "./App.css";
 import { Navbar } from "./components/navbar";
 import { Marginer } from "./components/marginer";
 import Card from "./components/Cards/src/Card";
-import Cardone from "./components/Cards/src/Cardone";
-import Cardtwo from "./components/Cards/src/Cardtwo"
-import Cardthree from "./components/Cards/src/Cardthree"
-import Cardfour from "./components/Cards/src/Cardfour"
-import Cardfive from "./components/Cards/src/Cardfive"
 import Cardwone from "./components/Profile/src/Cardwone";
-import Cardwtwo from "./components/Profile/src/Cardwtwo";
-import Cardwthree from "./components/Profile/src/Cardwthree";
-import Cardwfour from "./components/Profile/src/Cardwfour";
-import Cardwfive from "./components/Profile/src/Cardwfive";
-import Cardwsix from "./components/Profile/src/Cardwsix";
-
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -31,6 +21,51 @@ const useStyles = makeStyles({
 
 function App(){
   const classes = useStyles();
+  const [centers, getCenters] = useState (' ');
+  const [users, getUsers] = useState (' ');
+  const [loading, setLoading] = useState(true);
+
+
+  const url1 = 'http://localhost:8080/api/centers';
+  const url2 = 'http://localhost:8080/api/users'
+
+  useEffect (() => {
+    
+    getAllUsers();
+    
+  }, []);
+
+  useEffect (() => {
+    
+    getAllCenters();
+    
+  }, []);
+
+
+  const getAllCenters = () =>{
+    axios.get(`${url1}`)
+    .then((response) => {
+      const allCenters = response.data;
+      getCenters(allCenters);
+      setLoading(false);
+    })
+    .catch(error => console.error(`Error:${error}`));
+    }
+
+    const getAllUsers = () =>{
+      axios.get(`${url2}`)
+      .then((response) => {
+        const allUsers = response.data;
+        getUsers(allUsers);
+        setLoading(false);
+      })
+      .catch(error => console.error(`Error:${error}`));
+      }
+
+  
+  if(loading){
+    return("Data is Loading")
+  }
   return (
     <div className="App">
       
@@ -46,61 +81,30 @@ function App(){
               className={classes.gridContainer}
               justify="center"
             >
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardwone />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardwtwo />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardwthree />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardwfour />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardwfive />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardwsix />
-              </Grid>
+              
+                <Cardwone dataset={users}/>
+              
             </Grid>
           </Route>
 
           <Route path="/" exact component={HomePage} />
+
           <Route
             path="/customer/access/:action"
             exact
             component={CustomerAccessPage}
           />
           <Route path="/list">
-            
-            <Navbar />
+          <Navbar />
             <Marginer direction="vertical" margin={7} />
             <Grid
               container
               spacing={4}
               className={classes.gridContainer}
-              justify="center"
-            >
-              <Grid item xs={12} sm={6} md={4}>
-                <Card />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardone />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardtwo />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardthree />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardfour />
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Cardfive />
-              </Grid>
+              justify="center">
+            
+                <Card dataset={centers}/>
+              
             </Grid>
           </Route>
         </Switch>

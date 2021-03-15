@@ -15,13 +15,13 @@ export function LoginForm(props) {
 
   return (
     <BoxContainer>
-      <FormContainer>
-        <Input placeholder="Email" />
-        <Input type="password" placeholder="Password" />
+      <FormContainer action="http://localhost:8080/api/verify" method="post">
+        <Input type="text" name="email" placeholder="Email" />
+        <Input type="password" name="password" placeholder="Password" />
+        <MutedLink href="#">Forgot Password?</MutedLink>
+        <Marginer direction="vertical" margin="3em" />
+        <SubmitButton type="submit">Login</SubmitButton>
       </FormContainer>
-      <MutedLink href="#">Forgot Password?</MutedLink>
-      <Marginer direction="vertical" margin="1em" />
-      <SubmitButton>Login</SubmitButton>
       <Marginer direction="vertical" margin={5} />
       <MutedLink href="#">
         Dont have an Account?

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { AccountBox } from "../../components/accountBox";
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
+import { Marginer } from "../../components/marginer";
 import {
   InnerPageContainer,
   PageContainer,
@@ -23,6 +24,7 @@ export function CustomerAccessPage(props) {
       <StyledInnerContainer>
         <AccountBox initialActive={action} />
       </StyledInnerContainer>
+      <Marginer direction="vertical" margin="5em" />
       <Footer />
     </PageContainer>
   );

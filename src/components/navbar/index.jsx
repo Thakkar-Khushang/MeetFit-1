@@ -55,16 +55,10 @@ export function Navbar(props) {
     <NavbarContainer useTransparent={useTransparent} fixed="top">
       <BrandLogo />
       <AccessibilityContainer>
-      <Link to="/profile">
-          <Button size={18}>Profiles</Button>
-        </Link>
         <Marginer direction="horizontal" margin={8} />
-        <Link to="/customer/access/signup">
-          <Button size={18}>About Us</Button>
-        </Link>
         <Marginer direction="horizontal" margin={8} />
         <Link to="/list">
-          <Button size={18}>Contact</Button>
+          <Button size={18}>Fitness Centers</Button>
         </Link>
         <Marginer direction="horizontal" margin={8} />
         <Link to="/customer/access/signup">
